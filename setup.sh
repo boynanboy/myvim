@@ -7,17 +7,17 @@ if [ -f ${LOCFILE} ];then
     exit 0
 fi
 
-scp -r work@cq01-fanshuang.epc.baidu.com:/home/work/gitvim/  /home/work/
-vim='/home/work/.vim'
-vimrc='/home/work/.vimrc'
+#scp -r work@cq01-fanshuang.epc.baidu.com:$HOME/myvim/  $HOME/
+vim=$HOME'/.vim'
+vimrc=$HOME'/.vimrc'
 if [ -d $vim ];then 
-    mv $vim /home/work/.vim.bak
+    mv $vim $HOME/.vim.bak
 fi
 if [ -f $vimrc ];then
-    mv $vimrc /home/work/.vimrc.bak
+    mv $vimrc $HOME/.vimrc.bak
 fi
-ln -s /home/work/gitvim/  $vim
-ln -s /home/work/gitvim/.vimrc  $vimrc
+ln -s $HOME/Env/myvim/  $vim
+ln -s $HOME/Env/myvim/.vimrc  $vimrc
 touch /var/tmp//vim.lock
 echo "Done"
 
